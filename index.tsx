@@ -92,7 +92,7 @@ const Navbar = ({
 
   return (
     <header className="sticky top-0 z-50 py-4 h-[80px] bg-background/80 backdrop-blur-md border-b border-border transition-colors duration-300">
-      <div className="w-full mx-auto flex justify-between items-center px-5 sm:px-20 xl:px-52">
+      <div className="w-full mx-auto flex justify-between items-center px-4 sm:px-20 xl:px-52">
         <div className="flex items-center gap-10">
           <a 
             className="flex items-center gap-2 cursor-pointer" 
@@ -160,25 +160,25 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
   return (
     <main className="bg-square-pattern bg-repeat bg-50 text-start relative overflow-hidden transition-colors duration-300">
       <div className="flex justify-center items-center p-6 min-h-[calc(100vh-80px)] mx-auto mesh-gradient-center">
-        <div className="grid grid-cols-1 w-full max-w-7xl px-5 sm:px-20 xl:px-40">
+        <div className="grid grid-cols-1 w-full max-w-7xl px-4 sm:px-20 xl:px-40">
           
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 pb-8">
-            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/30 bg-gradient-gray shadow-2xl relative shrink-0">
+            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-accent/30 bg-gradient-gray shadow-2xl relative shrink-0">
                 <img 
                     src="https://i.postimg.cc/ncz7LHTL/Picsart-25-12-28-09-53-36-443.webp" 
                     alt="3D Avatar" 
                     className="w-full h-full object-cover"
                 />
             </div>
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
-              Hey, I'm <span className="px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3 transform">Anshunav</span> <span className="inline-block animate-pulse">✨</span>
+            <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
+              Hey, I'm <span className="px-1 sm:px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3 transform">Anshunav</span> <span className="inline-block animate-pulse">✨</span>
               <br />
-              A <span className="px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3 mt-1 md:mt-0 transform">Software Developer</span>
+              A <span className="px-1 sm:px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3 mt-1 md:mt-0 transform">Software Developer</span>
             </h1>
           </div>
 
-          <div className="border-2 border-primary/60 bg-background/30 backdrop-blur-sm p-6 rounded-lg max-w-[750px] shadow-lg mb-10">
-            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
+          <div className="border-2 border-primary/60 bg-background/30 backdrop-blur-sm p-4 sm:p-6 rounded-lg max-w-[750px] shadow-lg mb-10">
+            <p className="text-base sm:text-xl text-secondary leading-relaxed">
               A <span className="font-bold text-foreground">full-stack developer</span> with a strong <span className="font-bold text-foreground">design</span> and <span className="font-bold text-foreground">marketing</span> mindset.
               <br className="hidden md:block" />
               I build digital products that are clear, usable, and built for growth.
@@ -193,7 +193,7 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
                 className="relative inline-flex h-12 overflow-hidden rounded-md p-[2px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background shadow-xl w-full sm:w-auto"
               >
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ec4899_0%,#8b5cf6_50%,#ec4899_100%)]" />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-background px-6 py-2 text-sm font-bold text-white backdrop-blur-3xl transition-colors hover:bg-background/80">
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-background px-6 py-2 text-sm font-bold text-foreground backdrop-blur-3xl transition-colors hover:bg-background/80">
                   <AtSign className="mr-2 h-5 w-5" /> Contact Me
                 </span>
               </a>
@@ -201,26 +201,26 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
               {/* Animated View Projects Button */}
               <button 
                 onClick={() => setView('projects')}
-                className="group relative inline-flex items-center justify-center rounded-md text-sm font-medium border border-white/20 bg-white/5 hover:bg-white/10 hover:text-white text-gray-200 h-12 px-6 py-2 shadow-xl transition-all overflow-hidden w-full sm:w-auto"
+                className="group relative inline-flex items-center justify-center rounded-md text-sm font-medium border border-black/10 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:text-foreground text-secondary dark:text-gray-200 h-12 px-6 py-2 shadow-xl transition-all overflow-hidden w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center">
                     <GalleryHorizontalEnd className="mr-2 h-5 w-5 group-hover:animate-bounce" /> 
                     View Projects
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 dark:via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]"></div>
               </button>
             </div>
 
-            <div className="hidden lg:block w-[1px] bg-white/20 h-8 mx-8"></div>
+            <div className="hidden lg:block w-[1px] bg-black/10 dark:bg-white/20 h-8 mx-8"></div>
             
             {/* Divider for Mobile */}
-            <div className="block lg:hidden w-full h-[1px] bg-white/10"></div>
+            <div className="block lg:hidden w-full h-[1px] bg-black/10 dark:bg-white/10"></div>
 
-            <div className="flex justify-center items-center gap-8 text-xl text-gray-300">
-                <a href="https://github.com/rettogotbugs" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Github className="w-6 h-6" /></a>
-                <a href="https://dribbble.com/itzAnshu15" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Dribbble className="w-6 h-6" /></a>
-                <a href="https://www.linkedin.com/in/anshunavbora" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin className="w-6 h-6" /></a>
-                <a href="https://x.com/AnshunavBora" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Twitter className="w-6 h-6" /></a>
+            <div className="flex justify-center items-center gap-8 text-xl text-secondary">
+                <a href="https://github.com/rettogotbugs" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Github className="w-6 h-6" /></a>
+                <a href="https://dribbble.com/itzAnshu15" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Dribbble className="w-6 h-6" /></a>
+                <a href="https://www.linkedin.com/in/anshunavbora" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Linkedin className="w-6 h-6" /></a>
+                <a href="https://x.com/AnshunavBora" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Twitter className="w-6 h-6" /></a>
             </div>
           </div>
 
