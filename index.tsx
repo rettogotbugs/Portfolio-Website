@@ -162,7 +162,7 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
       <div className="flex justify-center items-center p-6 min-h-[calc(100vh-80px)] mx-auto mesh-gradient-center">
         <div className="grid grid-cols-1 w-full max-w-7xl px-5 sm:px-20 xl:px-40">
           
-          <div className="flex flex-col md:flex-row md:items-center gap-10 pb-8">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 pb-8">
             <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/30 bg-gradient-gray shadow-2xl relative shrink-0">
                 <img 
                     src="https://i.postimg.cc/ncz7LHTL/Picsart-25-12-28-09-53-36-443.webp" 
@@ -170,10 +170,10 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
                     className="w-full h-full object-cover"
                 />
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
               Hey, I'm <span className="px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3 transform">Anshunav</span> <span className="inline-block animate-pulse">✨</span>
               <br />
-              A <span className="px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3 mt-2 md:mt-0 transform">Software Developer</span>
+              A <span className="px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3 mt-1 md:mt-0 transform">Software Developer</span>
             </h1>
           </div>
 
