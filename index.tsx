@@ -170,15 +170,15 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
                     className="w-full h-full object-cover"
                 />
             </div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
-              Hey, I'm <span className="px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3">Anshunav</span> <span className="inline-block animate-pulse">✨</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
+              Hey, I'm <span className="px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3 transform">Anshunav</span> <span className="inline-block animate-pulse">✨</span>
               <br />
-              A <span className="px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3 mt-1 md:mt-0">Software Developer</span>
+              A <span className="px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white inline-block -skew-x-3 mt-2 md:mt-0 transform">Software Developer</span>
             </h1>
           </div>
 
           <div className="border-2 border-primary/60 bg-background/30 backdrop-blur-sm p-6 rounded-lg max-w-[750px] shadow-lg mb-10">
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
               A <span className="font-bold text-foreground">full-stack developer</span> with a strong <span className="font-bold text-foreground">design</span> and <span className="font-bold text-foreground">marketing</span> mindset.
               <br className="hidden md:block" />
               I build digital products that are clear, usable, and built for growth.
@@ -186,11 +186,11 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
           </div>
 
           <div className="flex flex-col gap-8 lg:gap-0 lg:flex-row lg:items-center justify-between max-w-[600px]">
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               {/* Colorful Looping Stroke Animation Button for Contact Me */}
               <a 
                 href="mailto:itzanshu15@gmail.com"
-                className="relative inline-flex h-12 overflow-hidden rounded-md p-[2px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background shadow-xl"
+                className="relative inline-flex h-12 overflow-hidden rounded-md p-[2px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background shadow-xl w-full sm:w-auto"
               >
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ec4899_0%,#8b5cf6_50%,#ec4899_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-background px-6 py-2 text-sm font-bold text-white backdrop-blur-3xl transition-colors hover:bg-background/80">
@@ -201,7 +201,7 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
               {/* Animated View Projects Button */}
               <button 
                 onClick={() => setView('projects')}
-                className="group relative inline-flex items-center justify-center rounded-md text-sm font-medium border border-white/20 bg-white/5 hover:bg-white/10 hover:text-white text-gray-200 h-12 px-6 py-2 shadow-xl transition-all overflow-hidden"
+                className="group relative inline-flex items-center justify-center rounded-md text-sm font-medium border border-white/20 bg-white/5 hover:bg-white/10 hover:text-white text-gray-200 h-12 px-6 py-2 shadow-xl transition-all overflow-hidden w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center">
                     <GalleryHorizontalEnd className="mr-2 h-5 w-5 group-hover:animate-bounce" /> 
@@ -212,8 +212,11 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
             </div>
 
             <div className="hidden lg:block w-[1px] bg-white/20 h-8 mx-8"></div>
+            
+            {/* Divider for Mobile */}
+            <div className="block lg:hidden w-full h-[1px] bg-white/10"></div>
 
-            <div className="flex items-center gap-8 text-xl text-gray-300">
+            <div className="flex justify-center items-center gap-8 text-xl text-gray-300">
                 <a href="https://github.com/rettogotbugs" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Github className="w-6 h-6" /></a>
                 <a href="https://dribbble.com/itzAnshu15" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Dribbble className="w-6 h-6" /></a>
                 <a href="https://www.linkedin.com/in/anshunavbora" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin className="w-6 h-6" /></a>
@@ -254,7 +257,7 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
   return (
     <section className="flex flex-col border-t border-border px-5 sm:px-20 xl:px-52 bg-background py-20 transition-colors duration-300">
       <div>
-        <h1 className="text-4xl font-bold mb-4 text-foreground">Building Digital Experiences</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">Building Digital Experiences</h1>
         <p className="text-secondary max-w-2xl">
           I specialize in creating stunning user interfaces and developing high-quality applications that stand out.
         </p>
@@ -263,7 +266,7 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-8 pt-12">
         
         {/* Card 1: What I can do */}
-        <div className="flex flex-col border border-border rounded-xl p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-colors">
+        <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-colors">
           <div className="flex pb-4 items-center gap-4">
             <div className="text-primary">
                <Layout className="w-10 h-10" />
@@ -284,7 +287,7 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
         </div>
 
         {/* Card 2: Tools I Use */}
-        <div className="flex flex-col border border-border rounded-xl p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-colors">
+        <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-colors">
           <div className="flex pb-4 items-center gap-4">
             <div className="text-primary">
                <Code2 className="w-10 h-10" />
@@ -315,7 +318,7 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
         </div>
 
         {/* Card 3: UI/UX Design - UPDATED */}
-        <div className="flex flex-col border border-border rounded-xl p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
+        <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
           <div className="flex pb-4 items-center gap-4">
             <div className="text-primary bg-primary/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                <Palette className="w-8 h-8" />
@@ -455,7 +458,7 @@ const ContactSection = () => {
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
         <h2 className="text-sm font-bold tracking-wider text-primary uppercase">Get In Touch</h2>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
           Let’s build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">amazing</span> together.
         </h1>
         <p className="text-lg md:text-xl text-secondary max-w-2xl">
@@ -463,17 +466,17 @@ const ContactSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 w-full justify-center">
-            <div className="relative group">
+            <div className="relative group w-full sm:w-auto">
                 <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                 <button 
                   onClick={handleCopy}
-                  className="relative flex items-center justify-between gap-4 px-8 py-4 bg-background rounded-lg border border-border leading-none transition-transform active:scale-95 w-full sm:w-auto min-w-[300px]"
+                  className="relative flex items-center justify-between gap-3 px-4 sm:px-8 py-4 bg-background rounded-lg border border-border leading-none transition-transform active:scale-95 w-full sm:w-auto sm:min-w-[300px]"
                 >
-                    <span className="flex items-center gap-3 text-lg font-medium text-foreground">
-                       <Mail className="w-5 h-5 text-secondary" />
-                       {email}
+                    <span className="flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-medium text-foreground truncate">
+                       <Mail className="w-5 h-5 text-secondary shrink-0" />
+                       <span className="truncate">{email}</span>
                     </span>
-                    <span className="text-xs font-bold text-secondary bg-accent px-2 py-1 rounded flex items-center gap-1">
+                    <span className="text-xs font-bold text-secondary bg-accent px-2 py-1 rounded flex items-center gap-1 shrink-0">
                         {copied ? <Check className="w-3 h-3 text-green-500" /> : <Copy className="w-3 h-3" />}
                         {copied ? "COPIED" : "COPY"}
                     </span>
@@ -482,7 +485,7 @@ const ContactSection = () => {
             
             <a 
                 href={`mailto:${email}`}
-                className="px-8 py-4 rounded-lg bg-foreground text-background font-bold hover:bg-foreground/90 transition-colors shadow-lg w-full sm:w-auto"
+                className="px-8 py-4 rounded-lg bg-foreground text-background font-bold hover:bg-foreground/90 transition-colors shadow-lg w-full sm:w-auto text-center"
             >
                 Send Email
             </a>
