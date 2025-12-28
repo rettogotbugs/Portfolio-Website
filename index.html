@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anshunav | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              background: 'var(--background)',
+              foreground: 'var(--foreground)',
+              primary: 'var(--primary)',
+              secondary: 'var(--secondary)',
+              accent: 'var(--accent)',
+              border: 'var(--border)',
+              input: 'var(--input)',
+              ring: 'var(--ring)',
+            },
+            backgroundImage: {
+              'gradient-primary': 'linear-gradient(to right, #8b5cf6, #ec4899)',
+              'gradient-gray': 'var(--gradient-gray)',
+            },
+            animation: {
+              'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
+              'blob': 'blob 7s infinite',
+            },
+            keyframes: {
+              'border-beam': {
+                '100%': {
+                  'offset-distance': '100%',
+                },
+              },
+              blob: {
+                "0%": {
+                  transform: "translate(0px, 0px) scale(1)",
+                },
+                "33%": {
+                  transform: "translate(30px, -50px) scale(1.1)",
+                },
+                "66%": {
+                  transform: "translate(-20px, 20px) scale(0.9)",
+                },
+                "100%": {
+                  transform: "translate(0px, 0px) scale(1)",
+                },
+              },
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --background: #ffffff;
+        --foreground: #030712;
+        --primary: #8b5cf6;
+        --secondary: #4b5563; /* Gray 600 */
+        --accent: #f3f4f6; /* Gray 100 */
+        --border: #e5e7eb; /* Gray 200 */
+        --input: #ffffff;
+        --ring: #8b5cf6;
+        --gradient-gray: linear-gradient(to bottom right, rgba(243, 244, 246, 0.8), rgba(229, 231, 235, 0.5));
+      }
+
+      .dark {
+        --background: #030712;
+        --foreground: #f9fafb;
+        --primary: #8b5cf6;
+        --secondary: #9ca3af; /* Gray 400 */
+        --accent: #1f2937; /* Gray 800 */
+        --border: #1f2937; /* Gray 800 */
+        --input: #111827; /* Gray 900 */
+        --ring: #8b5cf6;
+        --gradient-gray: linear-gradient(to bottom right, rgba(31, 41, 55, 0.5), rgba(17, 24, 39, 0.5));
+      }
+
+      body {
+        background-color: var(--background);
+        color: var(--foreground);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
+      /* Square Pattern Background */
+      .bg-square-pattern {
+        background-image: linear-gradient(to right, rgba(128, 128, 128, 0.1) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      }
+
+      /* Mesh Gradient */
+      .mesh-gradient-center {
+        background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15), transparent 60%);
+      }
+      
+      .gradient-text {
+        background: linear-gradient(to right, #8b5cf6, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Form inputs focus ring */
+      input:focus, textarea:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #8b5cf6;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--background);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary);
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react/": "https://esm.sh/react@18.2.0/",
+        "react-dom": "https://esm.sh/react-dom@18.2.0",
+        "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+        "lucide-react": "https://esm.sh/lucide-react@0.263.1?deps=react@18.2.0"
+      }
+    }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
