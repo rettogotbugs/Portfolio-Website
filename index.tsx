@@ -41,41 +41,351 @@ interface Project {
   description: string;
   tags: string[];
   link?: string;
+  content: React.ReactNode;
 }
 
 // --- Data ---
 const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "Nexus E-Commerce",
-    category: "Fullstack",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-    description: "A high-performance headless e-commerce platform built for scale.",
-    tags: ["Next.js", "Node.js", "PostgreSQL", "Stripe"]
+    title: "Personal Portfolio",
+    category: "Fullstack & Design",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+    description: "Designing & Building a Product-Focused Developer Portfolio.",
+    tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    content: (
+      <div className="space-y-8 text-secondary">
+        <section>
+          <h3 className="text-xl font-bold text-foreground mb-3">Overview</h3>
+          <p>This portfolio is a self-initiated project designed to present my skills as a full-stack developer with a strong design and marketing mindset.</p>
+          <p className="mt-2">Rather than acting as a simple resume website, the goal was to create a clear, conversion-focused digital product that communicates value within seconds while remaining technically solid and visually polished.</p>
+        </section>
+
+        <section>
+          <h3 className="text-xl font-bold text-foreground mb-3">Problem</h3>
+          <p className="mb-2">Many developer portfolios struggle with:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Generic copy and unclear positioning</li>
+            <li>Overcrowded layouts</li>
+            <li>Poor hierarchy and weak CTAs</li>
+            <li>Lack of real project context</li>
+          </ul>
+          <p className="mt-4">As a visitor, it’s often unclear: <em>What does this person actually do, and why should I contact them?</em></p>
+        </section>
+
+        <section>
+          <h3 className="text-xl font-bold text-foreground mb-3">Goal</h3>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Clearly communicates who I am and what I do</li>
+            <li>Balances design, development, and marketing</li>
+            <li>Feels modern, focused, and intentional</li>
+            <li>Scales easily as more projects are added</li>
+          </ul>
+        </section>
+
+        <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">My Role</h3>
+            <div className="flex flex-wrap gap-2">
+                {['UI/UX design', 'Frontend development', 'Content & positioning', 'Interaction & motion design'].map(role => (
+                    <span key={role} className="px-2 py-1 bg-accent rounded text-sm font-medium">{role}</span>
+                ))}
+            </div>
+            <p className="mt-2 text-sm italic">This project was fully designed and built by me from scratch.</p>
+        </section>
+
+        <section>
+          <h3 className="text-xl font-bold text-foreground mb-3">Design Approach</h3>
+          <div className="space-y-4">
+            <div>
+                <h4 className="font-semibold text-foreground">1. Clear Positioning First</h4>
+                <p>The hero section is designed to answer three questions immediately: Who am I? What do I do? What makes me different?</p>
+            </div>
+            <div>
+                <h4 className="font-semibold text-foreground">2. Visual Hierarchy & Focus</h4>
+                <p>Large headline for instant clarity. Supporting copy framed in a bordered container. Primary CTA emphasized.</p>
+            </div>
+            <div>
+                <h4 className="font-semibold text-foreground">3. Dark UI with Subtle Accents</h4>
+                <p>Dark theme for a modern, premium feel with gradient accents used sparingly.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3 className="text-xl font-bold text-foreground mb-3">Tech Stack</h3>
+          <ul className="list-disc pl-5 space-y-1">
+             <li><strong>Frontend:</strong> React, Next.js, TypeScript, Tailwind CSS</li>
+             <li><strong>UI & Motion:</strong> CSS animations, Responsive layout</li>
+             <li><strong>Tooling:</strong> Git & GitHub, Vercel</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3 className="text-xl font-bold text-foreground mb-3">Key Learnings</h3>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Clear positioning is more important than visual effects</li>
+            <li>Good portfolios sell thinking, not just skills</li>
+            <li>Marketing principles apply strongly to personal websites</li>
+            <li>Small design decisions compound into perceived quality</li>
+          </ul>
+        </section>
+      </div>
+    )
   },
   {
     id: 2,
-    title: "FitTrack Pro",
-    category: "App Dev",
-    image: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=800&q=80",
-    description: "A comprehensive fitness tracking mobile application.",
-    tags: ["React Native", "Firebase", "HealthKit"]
+    title: "FocusForge",
+    category: "Fullstack Product",
+    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+    description: "A Full-Stack Productivity & Habit Dashboard.",
+    tags: ["Next.js", "Node.js", "Prisma", "PostgreSQL"],
+    content: (
+        <div className="space-y-8 text-secondary">
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Overview</h3>
+            <p>FocusForge is a self-initiated full-stack web application designed to help users manage daily tasks, build habits, and track long-term consistency through visual insights.</p>
+            <p className="mt-2">The goal was to design a clean, distraction-free dashboard while implementing a scalable backend architecture suitable for real-world usage.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Problem</h3>
+            <p className="mb-2">Most productivity tools feel either too complex and overwhelming, or too minimal to provide meaningful insights. Users struggle to maintain habit consistency and understand progress over time.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Solution</h3>
+            <p>FocusForge combines task management, habit tracking, and analytics into a single dashboard with a strong emphasis on clarity and usability.</p>
+            <p className="mt-2 font-medium text-foreground">Key design principles:</p>
+            <ul className="list-disc pl-5 space-y-1 mt-1">
+                <li>Minimal UI with clear hierarchy</li>
+                <li>Visual progress indicators</li>
+                <li>Fast interactions and low cognitive load</li>
+            </ul>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Tech Stack</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <h4 className="font-semibold text-foreground mb-1">Frontend</h4>
+                    <ul className="list-disc pl-5 text-sm">
+                        <li>Next.js (App Router)</li>
+                        <li>React & TypeScript</li>
+                        <li>Tailwind CSS</li>
+                        <li>Chart.js</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 className="font-semibold text-foreground mb-1">Backend & DevOps</h4>
+                    <ul className="list-disc pl-5 text-sm">
+                        <li>Node.js & Fastify</li>
+                        <li>Prisma ORM & PostgreSQL</li>
+                        <li>Zod (Validation)</li>
+                        <li>Vercel Deployment</li>
+                    </ul>
+                </div>
+            </div>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Challenges & Solutions</h3>
+            <div className="space-y-3">
+                <div className="bg-accent/30 p-4 rounded-lg">
+                    <span className="font-bold text-primary block mb-1">Challenge: Managing real-time habit streaks</span>
+                    <p className="text-sm">Solution: Normalized database schema with daily completion entries.</p>
+                </div>
+                <div className="bg-accent/30 p-4 rounded-lg">
+                    <span className="font-bold text-primary block mb-1">Challenge: Keeping dashboards readable with lots of data</span>
+                    <p className="text-sm">Solution: Progressive disclosure — showing summaries first, details later.</p>
+                </div>
+            </div>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Outcome</h3>
+            <p>FocusForge demonstrates full-stack architecture thinking, data visualization skills, and clean dashboard UI design.</p>
+          </section>
+        </div>
+      )
   },
   {
     id: 3,
-    title: "Artisan Coffee",
-    category: "Shopify",
-    image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800&q=80",
-    description: "Brand overhaul and Shopify store setup for a boutique roaster.",
-    tags: ["Shopify", "SEO", "Marketing"]
+    title: "Pulse",
+    category: "Mobile App",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    description: "A Mobile Habit & Mood Tracking App.",
+    tags: ["React Native", "TypeScript", "Expo"],
+    content: (
+        <div className="space-y-8 text-secondary">
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Overview</h3>
+            <p>Pulse is a mobile app designed to help users build better habits while tracking their emotional state over time. The project focuses on emotional design, simplicity, and daily engagement rather than feature overload.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Problem</h3>
+            <p>Many habit apps fail because they demand too much input, interfaces feel robotic, and users lose motivation quickly.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Solution</h3>
+            <p>Pulse introduces one-tap habit completion, simple mood logging using emojis, and gentle visual feedback instead of pressure-based metrics.</p>
+          </section>
+
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Core Features</h3>
+             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary"/> Onboarding flow</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary"/> Daily habit checklist</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary"/> Mood tracking (emoji-based)</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary"/> Streak visualization</li>
+             </ul>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Tech Stack</h3>
+            <ul className="list-disc pl-5 space-y-1">
+                <li><strong>Mobile:</strong> React Native, TypeScript, Expo</li>
+                <li><strong>State & Storage:</strong> Context API, AsyncStorage</li>
+                <li><strong>Design:</strong> Figma (UI & flows)</li>
+            </ul>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Design Decisions</h3>
+            <ul className="list-disc pl-5 space-y-1">
+                <li>Used soft gradients to create a calm emotional tone</li>
+                <li>Large touch targets for one-handed usage</li>
+                <li>Bottom navigation for fast access</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Learnings</h3>
+            <p>Mobile UX requires fewer choices, not more. Emotional feedback increases retention, and small animations significantly improve perceived quality.</p>
+          </section>
+        </div>
+      )
   },
     {
     id: 4,
-    title: "Dashboard UI",
-    category: "Design",
+    title: "Launchpad",
+    category: "Marketing & Frontend",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    description: "Modern analytics dashboard with dark mode support.",
-    tags: ["Figma", "React", "Tailwind"]
+    description: "A Conversion-Focused Marketing Landing Page.",
+    tags: ["Next.js", "React", "Tailwind CSS"],
+    content: (
+        <div className="space-y-8 text-secondary">
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Overview</h3>
+            <p>Launchpad is a concept landing page designed to convert early users for an AI-powered resume and portfolio feedback tool. This project emphasizes marketing psychology, copywriting, and conversion flow.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Problem</h3>
+            <p>Many early-stage products fail because value propositions are unclear, pages lack trust signals, and CTAs are poorly placed.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Solution</h3>
+            <p>Launchpad was designed as a single-purpose page: <strong>Convert visitors into waitlist signups.</strong></p>
+            <p className="mt-2 text-sm">Page Structure: Hero Value Prop → Problem/Solution Storytelling → Feature Highlights → Social Proof → FAQ → CTA.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Tech Stack</h3>
+            <div className="flex flex-wrap gap-2">
+                {["Next.js", "React", "Tailwind CSS", "TypeScript"].map(tag => (
+                    <span key={tag} className="px-3 py-1 bg-accent border border-border rounded-full text-xs">{tag}</span>
+                ))}
+            </div>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Marketing Decisions</h3>
+            <ul className="list-disc pl-5 space-y-1">
+                <li>CTA repeated at multiple scroll points</li>
+                <li>Copy focuses on outcomes, not features</li>
+                <li>Friendly illustrations to reduce intimidation</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Challenges & Solutions</h3>
+            <div className="space-y-3">
+                 <div>
+                    <span className="font-semibold text-foreground">Challenge: Avoiding content overload</span>
+                    <p className="text-sm">Solution: Clear visual sections with breathing space.</p>
+                 </div>
+                 <div>
+                    <span className="font-semibold text-foreground">Challenge: Building trust without real users</span>
+                    <p className="text-sm">Solution: Transparent “early access” framing.</p>
+                 </div>
+            </div>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Learnings</h3>
+            <p>Good copy reduces design complexity. Clear positioning matters more than animations. Marketing is as much UX as visuals.</p>
+          </section>
+        </div>
+      )
+  },
+  {
+    id: 5,
+    title: "Aravalli Atlas",
+    category: "Educational Platform",
+    image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80",
+    description: "An Educational Data-Driven Web Platform.",
+    tags: ["React", "Tailwind CSS", "Chart.js"],
+    content: (
+        <div className="space-y-8 text-secondary">
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Overview</h3>
+            <p>Aravalli Atlas is an informational platform designed to present environmental data in a neutral, educational format. The focus was on information clarity, visual storytelling, and ethical UX design.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Problem</h3>
+            <p>Environmental topics often suffer from information overload, emotional manipulation, and poor data presentation.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Solution</h3>
+            <p>Aravalli Atlas presents structured educational sections, data-backed insights, and clear navigation for exploration.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Key Sections</h3>
+            <ul className="list-disc pl-5 space-y-1">
+                <li>Geography overview</li>
+                <li>Environmental importance</li>
+                <li>Threats and challenges</li>
+                <li>Data & statistics</li>
+                <li>Resources and references</li>
+            </ul>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Tech Stack</h3>
+            <p>React, Tailwind CSS, Chart.js, Map-based visualization tools.</p>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Design Decisions</h3>
+            <ul className="list-disc pl-5 space-y-1">
+                <li>Earth-tone color palette</li>
+                <li>Neutral language</li>
+                <li>Map-based storytelling</li>
+            </ul>
+          </section>
+  
+          <section>
+            <h3 className="text-xl font-bold text-foreground mb-3">Learnings</h3>
+            <p>Ethics matter in UX. Visual data improves understanding. Tone affects credibility.</p>
+          </section>
+        </div>
+      )
   }
 ];
 
@@ -591,9 +901,12 @@ const Footer = () => {
   );
 };
 
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
+const ProjectCard: React.FC<{ project: Project, onClick: () => void }> = ({ project, onClick }) => {
   return (
-    <div className="group bg-accent/20 rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-300">
+    <div 
+        onClick={onClick}
+        className="group bg-accent/20 rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 cursor-pointer"
+    >
       <div className="h-48 overflow-hidden relative">
         <img 
           src={project.image} 
@@ -622,18 +935,61 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   );
 };
 
+const ProjectDetailsModal = ({ project, onClose }: { project: Project, onClose: () => void }) => {
+    useEffect(() => {
+        // Prevent scrolling on the body when the modal is open
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = 'unset';
+        }
+    }, []);
+
+    return (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-fade-in">
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
+            <div className="relative bg-background w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl border border-border flex flex-col">
+                <button 
+                    onClick={onClose} 
+                    className="absolute top-4 right-4 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 backdrop-blur-md transition-colors z-20"
+                >
+                    <X className="w-5 h-5" />
+                </button>
+                <div className="h-64 sm:h-80 w-full relative shrink-0">
+                     <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+                     <div className="absolute bottom-6 left-6 sm:left-10 right-6">
+                        <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-mono font-bold mb-3 inline-block border border-primary/20 backdrop-blur-sm">
+                            {project.category}
+                        </span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground drop-shadow-md">{project.title}</h2>
+                     </div>
+                </div>
+                <div className="p-6 sm:p-10 grow">
+                    {project.content}
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const ProjectsView = () => {
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
     return (
         <div className="py-20 px-5 sm:px-20 xl:px-52 min-h-screen animate-fade-in bg-background transition-colors duration-300">
              <div className="mb-12">
                 <h1 className="text-4xl font-bold text-foreground mb-4">My Projects</h1>
-                <p className="text-secondary">Here are some of the projects I've worked on recently.</p>
+                <p className="text-secondary">Here are some of the projects I've worked on recently. Click on a card to view details.</p>
              </div>
              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {PROJECTS.map(p => (
-                    <ProjectCard key={p.id} project={p} />
+                    <ProjectCard key={p.id} project={p} onClick={() => setSelectedProject(p)} />
                 ))}
              </div>
+
+             {selectedProject && (
+                 <ProjectDetailsModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+             )}
         </div>
     );
 };
