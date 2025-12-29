@@ -1,5 +1,4 @@
 
-```markdown
 # Personal Portfolio Website
 
 This repository contains the source code for my personal portfolio website.  
@@ -89,15 +88,5 @@ npm run build
 ## License
 
 This project is licensed under the MIT License.
-
-```
-
-### Improvements made:
-* **Headers:** Added `##` for proper sectioning.
-* **Code Blocks:** Wrapped the project structure in `text` blocks and the commands in `bash` blocks. This ensures they look like code boxes on GitHub.
-* **Links:** Formatted the URL and localhost links to be clickable.
-* **Formatting:** Added bold text to the intro to highlight the tech stack.
-
-Would you like me to create a `CONTRIBUTING.md` file template for this project as well?
 
 ```
