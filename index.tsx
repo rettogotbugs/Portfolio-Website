@@ -25,7 +25,11 @@ import {
   Briefcase,
   Copy,
   Check,
-  Quote
+  Quote,
+  Database,
+  Globe,
+  Server,
+  Cpu
 } from 'lucide-react';
 
 // --- Types ---
@@ -102,7 +106,7 @@ const Navbar = ({
                 <span className="text-white text-xs font-bold">A</span>
             </div>
             <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-primary">
-              Anshunav.dev
+              Anshunav
             </div>
           </a>
           <nav className="hidden md:flex gap-8">
@@ -265,59 +269,91 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
 
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-8 pt-12">
         
-        {/* Card 1: What I can do */}
-        <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-colors">
+        {/* Card 1: What I can do - REDESIGNED */}
+        <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
           <div className="flex pb-4 items-center gap-4">
-            <div className="text-primary">
-               <Layout className="w-10 h-10" />
+            <div className="text-primary bg-primary/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+               <Layout className="w-8 h-8" />
             </div>
             <h1 className="text-2xl font-bold text-foreground">What I can do</h1>
           </div>
-          <p className="text-secondary pb-4">
+          <p className="text-secondary pb-6">
             I can help develop solutions that will help you grow your business:
           </p>
-          <ul className="list-disc space-y-2 pl-6 text-secondary">
-            <li>UI/UX Design</li>
-            <li>Fullstack Web Development</li>
-            <li>Mobile App Development</li>
-            <li>Shopify & WordPress Development</li>
-            <li>Database Design</li>
-            <li>API Integration</li>
+          <ul className="space-y-3">
+            {[
+              "UI/UX Design",
+              "Fullstack Web Development",
+              "Mobile App Development",
+              "Shopify & WordPress Development",
+              "Database Design",
+              "API Integration"
+            ].map((item, idx) => (
+               <li key={idx} className="flex items-start gap-3 text-secondary group/item">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover/item:bg-primary group-hover/item:text-white transition-colors duration-300">
+                    <Check className="w-3 h-3" />
+                  </div>
+                  <span className="group-hover/item:text-foreground transition-colors duration-300">{item}</span>
+               </li>
+            ))}
           </ul>
         </div>
 
-        {/* Card 2: Tools I Use */}
-        <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-colors">
+        {/* Card 2: Tools I Use - REDESIGNED */}
+        <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
           <div className="flex pb-4 items-center gap-4">
-            <div className="text-primary">
-               <Code2 className="w-10 h-10" />
+            <div className="text-primary bg-primary/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+               <Code2 className="w-8 h-8" />
             </div>
             <h1 className="text-2xl font-bold text-foreground">Tools & Tech Stack</h1>
           </div>
-          <p className="text-secondary pb-4">
+          <p className="text-secondary pb-6">
             I use the latest tools and technologies to build functional and scalable products:
           </p>
-          <ul className="space-y-3 text-secondary">
-            <li>
-                <span className="font-semibold text-foreground block">Frontend:</span>
-                <span className="text-sm">Next.js (App Router), React, TypeScript, Tailwind CSS, Framer Motion, Shadcn/UI</span>
-            </li>
-            <li>
-                <span className="font-semibold text-foreground block">Backend:</span>
-                <span className="text-sm">Node.js, Fastify / Hono, PostgreSQL, Prisma ORM, Redis</span>
-            </li>
-            <li>
-                <span className="font-semibold text-foreground block">DevOps & Tools:</span>
-                <span className="text-sm">Vercel, Docker, Git & GitHub, Zod</span>
-            </li>
-            <li>
-                <span className="font-semibold text-foreground block">Design:</span>
-                <span className="text-sm">Figma, Framer, Photoshop</span>
-            </li>
-          </ul>
+          
+          <div className="space-y-6">
+             {[
+               { 
+                 category: "Frontend", 
+                 icon: <Globe className="w-4 h-4" />,
+                 tools: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Shadcn/UI"] 
+               },
+               { 
+                 category: "Backend", 
+                 icon: <Server className="w-4 h-4" />,
+                 tools: ["Node.js", "Fastify", "PostgreSQL", "Prisma ORM", "Redis"] 
+               },
+               { 
+                 category: "DevOps & Tools", 
+                 icon: <Cpu className="w-4 h-4" />,
+                 tools: ["Vercel", "Docker", "Git & GitHub", "Zod"] 
+               },
+               {
+                 category: "Design",
+                 icon: <Palette className="w-4 h-4" />,
+                 tools: ["Figma", "Framer", "Photoshop"]
+               }
+             ].map((group, idx) => (
+                <div key={idx}>
+                   <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                      <div className="p-1 rounded bg-primary/10 text-primary">
+                        {group.icon}
+                      </div>
+                      {group.category}
+                   </h3>
+                   <div className="flex flex-wrap gap-2">
+                      {group.tools.map((tool, tIdx) => (
+                         <span key={tIdx} className="px-2.5 py-1 text-xs rounded-md bg-accent border border-border text-secondary hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all duration-300 cursor-default select-none">
+                            {tool}
+                         </span>
+                      ))}
+                   </div>
+                </div>
+             ))}
+          </div>
         </div>
 
-        {/* Card 3: UI/UX Design - UPDATED */}
+        {/* Card 3: UI/UX Design - (Keep as is) */}
         <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
           <div className="flex pb-4 items-center gap-4">
             <div className="text-primary bg-primary/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
@@ -528,7 +564,7 @@ const Footer = () => {
       <div className="px-5 sm:px-20 xl:px-52 pt-12 pb-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
             <div>
-                <h2 className="text-xl font-bold text-foreground mb-2">Anshunav</h2>
+                <h2 className="text-xl font-bold text-foreground mb-2">Anshunav Bora</h2>
                 <div className="flex items-center gap-2 text-secondary">
                     <span className="text-xl">🇮🇳</span>
                     <p>Based In India</p>
