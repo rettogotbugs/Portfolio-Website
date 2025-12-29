@@ -1,20 +1,102 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
-# Run and deploy your AI Studio app
+````md
+# Personal Portfolio Website
 
-This contains everything you need to run your app locally.
+This repository contains the source code for my personal portfolio website.  
+It is built with React and Vite, styled using Tailwind CSS, and designed to be fast, responsive, and easy to maintain.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1eFYG48aYnk61SCkZJpfGUJMFE7FKccik
+The site highlights my background, skills, and selected projects in a clean and minimal layout.
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## Live Site
 
+https://your-domain.vercel.app
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+## Tech Stack
+
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+
+---
+
+## Features
+
+- Responsive layout for desktop and mobile
+- Component-based architecture
+- Modern build tooling with Vite
+- Clean and minimal UI
+- Easy to customize content and styles
+
+---
+
+## Project Structure
+
+```text
+src/
+├── components/     Reusable UI components
+├── styles/         Global styles
+├── data.ts         Portfolio content and configuration
+├── App.tsx         Root application component
+└── main.tsx        Application entry point
+````
+
+---
+
+## Local Development
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/your-username/portfolio.git
+cd portfolio
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The site will be available at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Deployment
+
+The project can be deployed on platforms such as:
+
+* Vercel
+* Netlify
+* GitHub Pages
+
+The build output is generated using:
+
+```bash
+npm run build
+```
+
+---
+
+## Customization
+
+Most content can be updated directly from the data and component files.
+Styling is handled through Tailwind CSS utility classes and global styles.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+```
+
