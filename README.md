@@ -10,7 +10,7 @@ The site highlights my background, skills, and selected projects in a clean and 
 
 ## Live Site
 
-[https://your-domain.vercel.app](https://your-domain.vercel.app)
+[https://anshunav.vercel.app](https://anshunav.vercel.app)
 
 ---
 
@@ -50,7 +50,7 @@ src/
 Clone the repository and install dependencies:
 
 ```bash
-git clone [https://github.com/your-username/portfolio.git](https://github.com/your-username/portfolio.git)
+git clone https://github.com/rettogotbugs/Portfolio-Website
 cd portfolio
 npm install
 
@@ -89,4 +89,3 @@ npm run build
 
 This project is licensed under the MIT License.
 
-```
