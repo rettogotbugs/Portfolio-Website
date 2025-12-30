@@ -29,7 +29,22 @@ import {
   Database,
   Globe,
   Server,
-  Cpu
+  Cpu,
+  Target,
+  Zap,
+  Sparkles,
+  TrendingUp,
+  History,
+  User,
+  Shield,
+  Lightbulb,
+  MousePointer2,
+  Layers,
+  Flag,
+  Rocket,
+  PenTool,
+  Box,
+  Monitor
 } from 'lucide-react';
 
 // --- Types ---
@@ -41,6 +56,7 @@ interface Project {
   description: string;
   tags: string[];
   link?: string;
+  isFeatured?: boolean;
   content: React.ReactNode;
 }
 
@@ -49,85 +65,130 @@ const PROJECTS: Project[] = [
   {
     id: 1,
     title: "Personal Portfolio",
-    category: "Fullstack & Design",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+    category: "Portfolio",
+    isFeatured: true,
+    image: "https://i.postimg.cc/HkvwhhV6/M003T1516-B-Macbook-Mockup-09sep25.webp",
     description: "Designing & Building a Product-Focused Developer Portfolio.",
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     content: (
-      <div className="space-y-8 text-secondary">
-        <section>
-          <h3 className="text-xl font-bold text-foreground mb-3">Overview</h3>
-          <p>This portfolio is a self-initiated project designed to present my skills as a full-stack developer with a strong design and marketing mindset.</p>
-          <p className="mt-2">Rather than acting as a simple resume website, the goal was to create a clear, conversion-focused digital product that communicates value within seconds while remaining technically solid and visually polished.</p>
+      <div className="space-y-12 text-secondary animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <div className="rounded-2xl overflow-hidden border border-border shadow-xl relative group">
+            <img src="https://api.pikwy.com/web/6953c17e8c188c47ec55c19b.jpg" className="w-full h-auto object-cover" alt="Portfolio Inside View" />
+        </div>
+
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            <div className="md:col-span-2 space-y-6">
+                <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                    <Target className="w-4 h-4" /> Case Study
+                </div>
+                <h3 className="text-3xl font-bold text-foreground">Designing a Product-Focused Developer Portfolio</h3>
+                <p className="text-lg leading-relaxed">
+                    This portfolio is a self-initiated project designed to present my work as a full-stack developer with a strong design and marketing mindset. 
+                    Instead of acting as a static resume, the portfolio was treated as a <strong>product</strong> — with positioning, hierarchy, and conversion as core goals.
+                </p>
+                <div className="flex flex-wrap gap-4 pt-2">
+                    <a href="https://github.com/rettogotbugs/Portfolio-Website" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 rounded-lg bg-foreground text-background font-bold hover:bg-foreground/80 transition-colors shadow-lg">
+                        <Github className="w-5 h-5 mr-2" /> View Source Code
+                    </a>
+                </div>
+            </div>
+            <div className="bg-accent/30 p-6 rounded-2xl border border-border space-y-4">
+                <div className="text-sm font-bold text-foreground flex items-center gap-2"><User className="w-4 h-4 text-primary"/> MY ROLE</div>
+                <ul className="space-y-3 text-sm">
+                    <li className="flex items-center gap-3"><Palette className="w-4 h-4 text-secondary" /> UI/UX Design</li>
+                    <li className="flex items-center gap-3"><Code2 className="w-4 h-4 text-secondary" /> Frontend Development</li>
+                    <li className="flex items-center gap-3"><PenTool className="w-4 h-4 text-secondary" /> Copywriting & Positioning</li>
+                    <li className="flex items-center gap-3"><MousePointer2 className="w-4 h-4 text-secondary" /> Interaction Design</li>
+                </ul>
+            </div>
         </section>
 
-        <section>
-          <h3 className="text-xl font-bold text-foreground mb-3">Problem</h3>
-          <p className="mb-2">Many developer portfolios struggle with:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Generic copy and unclear positioning</li>
-            <li>Overcrowded layouts</li>
-            <li>Poor hierarchy and weak CTAs</li>
-            <li>Lack of real project context</li>
-          </ul>
-          <p className="mt-4">As a visitor, it’s often unclear: <em>What does this person actually do, and why should I contact them?</em></p>
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+             <div className="space-y-6 p-6 rounded-2xl bg-red-500/5 border border-red-500/10">
+                <div className="flex items-center gap-2 text-red-500 font-bold uppercase tracking-wider text-xs">
+                    <X className="w-4 h-4" /> The Problem
+                </div>
+                <p className="font-medium text-foreground">Most developer portfolios fail because:</p>
+                <ul className="space-y-2">
+                    <li className="flex gap-3 text-sm"><span className="text-red-500">•</span> Messaging is vague or generic</li>
+                    <li className="flex gap-3 text-sm"><span className="text-red-500">•</span> Skills are listed without context</li>
+                    <li className="flex gap-3 text-sm"><span className="text-red-500">•</span> Visitors don’t know what action to take</li>
+                </ul>
+                <p className="text-sm italic opacity-80 mt-4">"What does this person actually do, and why should I contact them?"</p>
+             </div>
+
+             <div className="space-y-6 p-6 rounded-2xl bg-green-500/5 border border-green-500/10">
+                <div className="flex items-center gap-2 text-green-600 font-bold uppercase tracking-wider text-xs">
+                    <CheckCircle className="w-4 h-4" /> The Goals
+                </div>
+                <ul className="space-y-3">
+                    <li className="flex gap-3 text-sm items-start"><Check className="w-4 h-4 text-green-600 shrink-0 mt-0.5" /> Communicate value clearly within the first screen</li>
+                    <li className="flex gap-3 text-sm items-start"><Check className="w-4 h-4 text-green-600 shrink-0 mt-0.5" /> Balance design, development, and marketing</li>
+                    <li className="flex gap-3 text-sm items-start"><Check className="w-4 h-4 text-green-600 shrink-0 mt-0.5" /> Feel modern, confident, and intentional</li>
+                    <li className="flex gap-3 text-sm items-start"><Check className="w-4 h-4 text-green-600 shrink-0 mt-0.5" /> Scale easily with case studies and projects</li>
+                </ul>
+             </div>
         </section>
 
-        <section>
-          <h3 className="text-xl font-bold text-foreground mb-3">Goal</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Clearly communicates who I am and what I do</li>
-            <li>Balances design, development, and marketing</li>
-            <li>Feels modern, focused, and intentional</li>
-            <li>Scales easily as more projects are added</li>
-          </ul>
-        </section>
-
-        <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">My Role</h3>
-            <div className="flex flex-wrap gap-2">
-                {['UI/UX design', 'Frontend development', 'Content & positioning', 'Interaction & motion design'].map(role => (
-                    <span key={role} className="px-2 py-1 bg-accent rounded text-sm font-medium">{role}</span>
+        <section className="space-y-6">
+            <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                <Sparkles className="w-4 h-4" /> Design Decisions
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {[
+                    { title: "Strong Hierarchy", desc: "Hero answers 'who/what/why' instantly." },
+                    { title: "Dark Theme", desc: "Premium feel that highlights content." },
+                    { title: "Minimal Nav", desc: "Reduced cognitive load for visitors." }
+                ].map((item, i) => (
+                    <div key={i} className="p-5 rounded-xl bg-accent/20 border border-border hover:bg-accent/40 transition-colors">
+                        <div className="font-bold text-foreground mb-2">{item.title}</div>
+                        <p className="text-sm leading-relaxed">{item.desc}</p>
+                    </div>
                 ))}
             </div>
-            <p className="mt-2 text-sm italic">This project was fully designed and built by me from scratch.</p>
         </section>
 
-        <section>
-          <h3 className="text-xl font-bold text-foreground mb-3">Design Approach</h3>
-          <div className="space-y-4">
-            <div>
-                <h4 className="font-semibold text-foreground">1. Clear Positioning First</h4>
-                <p>The hero section is designed to answer three questions immediately: Who am I? What do I do? What makes me different?</p>
+        <section className="space-y-6">
+             <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                <Layers className="w-4 h-4" /> Tech Stack
             </div>
-            <div>
-                <h4 className="font-semibold text-foreground">2. Visual Hierarchy & Focus</h4>
-                <p>Large headline for instant clarity. Supporting copy framed in a bordered container. Primary CTA emphasized.</p>
+            <div className="flex flex-wrap gap-2">
+                {["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Git & GitHub"].map((tech) => (
+                    <span key={tech} className="px-3 py-1.5 rounded-md bg-accent border border-border text-xs font-medium text-foreground">
+                        {tech}
+                    </span>
+                ))}
             </div>
-            <div>
-                <h4 className="font-semibold text-foreground">3. Dark UI with Subtle Accents</h4>
-                <p>Dark theme for a modern, premium feel with gradient accents used sparingly.</p>
-            </div>
-          </div>
         </section>
 
-        <section>
-          <h3 className="text-xl font-bold text-foreground mb-3">Tech Stack</h3>
-          <ul className="list-disc pl-5 space-y-1">
-             <li><strong>Frontend:</strong> React, Next.js, TypeScript, Tailwind CSS</li>
-             <li><strong>UI & Motion:</strong> CSS animations, Responsive layout</li>
-             <li><strong>Tooling:</strong> Git & GitHub, Vercel</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3 className="text-xl font-bold text-foreground mb-3">Key Learnings</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Clear positioning is more important than visual effects</li>
-            <li>Good portfolios sell thinking, not just skills</li>
-            <li>Marketing principles apply strongly to personal websites</li>
-            <li>Small design decisions compound into perceived quality</li>
-          </ul>
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+                <div className="font-bold text-foreground flex items-center gap-2"><Zap className="w-4 h-4 text-yellow-500"/> Challenges & Solutions</div>
+                <div className="space-y-4">
+                     <div className="p-4 rounded-lg bg-accent/20 border border-border">
+                        <div className="text-xs font-bold text-secondary uppercase mb-1">Challenge</div>
+                        <div className="font-medium text-foreground mb-2">Avoiding buzzwords</div>
+                        <div className="text-xs font-bold text-primary uppercase mb-1">Solution</div>
+                        <div className="text-sm">Outcome-driven copy (“clear, usable, built for growth”)</div>
+                     </div>
+                     <div className="p-4 rounded-lg bg-accent/20 border border-border">
+                        <div className="text-xs font-bold text-secondary uppercase mb-1">Challenge</div>
+                        <div className="font-medium text-foreground mb-2">Showing personality professionally</div>
+                        <div className="text-xs font-bold text-primary uppercase mb-1">Solution</div>
+                        <div className="text-sm">Friendly visuals with disciplined layout & typography</div>
+                     </div>
+                </div>
+            </div>
+            <div className="space-y-4">
+                <div className="font-bold text-foreground flex items-center gap-2"><Lightbulb className="w-4 h-4 text-yellow-500"/> Learnings</div>
+                <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 h-full flex flex-col justify-center">
+                    <ul className="space-y-3">
+                        <li className="flex gap-3 text-sm font-medium"><span className="text-primary">01.</span> Positioning matters more than visuals</li>
+                        <li className="flex gap-3 text-sm font-medium"><span className="text-primary">02.</span> Portfolios are marketing tools</li>
+                        <li className="flex gap-3 text-sm font-medium"><span className="text-primary">03.</span> Less content, better structure</li>
+                    </ul>
+                </div>
+            </div>
         </section>
       </div>
     )
@@ -135,75 +196,114 @@ const PROJECTS: Project[] = [
   {
     id: 2,
     title: "FocusForge",
-    category: "Fullstack Product",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+    category: "Fullstack Web App",
+    image: "https://i.postimg.cc/W3ybR00g/7-Macbook-Pro-16-inch-Mockup.webp",
     description: "A Full-Stack Productivity & Habit Dashboard.",
     tags: ["Next.js", "Node.js", "Prisma", "PostgreSQL"],
     content: (
-        <div className="space-y-8 text-secondary">
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Overview</h3>
-            <p>FocusForge is a self-initiated full-stack web application designed to help users manage daily tasks, build habits, and track long-term consistency through visual insights.</p>
-            <p className="mt-2">The goal was to design a clean, distraction-free dashboard while implementing a scalable backend architecture suitable for real-world usage.</p>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Problem</h3>
-            <p className="mb-2">Most productivity tools feel either too complex and overwhelming, or too minimal to provide meaningful insights. Users struggle to maintain habit consistency and understand progress over time.</p>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Solution</h3>
-            <p>FocusForge combines task management, habit tracking, and analytics into a single dashboard with a strong emphasis on clarity and usability.</p>
-            <p className="mt-2 font-medium text-foreground">Key design principles:</p>
-            <ul className="list-disc pl-5 space-y-1 mt-1">
-                <li>Minimal UI with clear hierarchy</li>
-                <li>Visual progress indicators</li>
-                <li>Fast interactions and low cognitive load</li>
-            </ul>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Tech Stack</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <h4 className="font-semibold text-foreground mb-1">Frontend</h4>
-                    <ul className="list-disc pl-5 text-sm">
-                        <li>Next.js (App Router)</li>
-                        <li>React & TypeScript</li>
-                        <li>Tailwind CSS</li>
-                        <li>Chart.js</li>
-                    </ul>
+        <div className="space-y-12 text-secondary animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-white p-4 shadow-lg shrink-0 flex items-center justify-center border border-border/50">
+                <img src="https://i.postimg.cc/MpRnw3G9/Chat-GPT-Image-Dec-30-2025-02-17-08-PM.png" className="w-full h-full object-contain" alt="FocusForge Logo" />
+            </div>
+            <div className="text-center md:text-left">
+                <h3 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">FocusForge</h3>
+                <p className="text-lg md:text-xl font-medium text-primary mt-2">Master Your Habits, Forge Your Future.</p>
+                <div className="flex gap-2 justify-center md:justify-start mt-4">
+                    <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-500 text-xs font-bold border border-blue-500/20">Web App</span>
+                    <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-500 text-xs font-bold border border-purple-500/20">Productivity</span>
                 </div>
-                <div>
-                    <h4 className="font-semibold text-foreground mb-1">Backend & DevOps</h4>
-                    <ul className="list-disc pl-5 text-sm">
-                        <li>Node.js & Fastify</li>
-                        <li>Prisma ORM & PostgreSQL</li>
-                        <li>Zod (Validation)</li>
-                        <li>Vercel Deployment</li>
-                    </ul>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-border shadow-2xl bg-accent/10">
+              <img src="https://i.postimg.cc/Tw3FVSLV/pawelzmarlak-2025-12-30T08-41-24-414Z.png" className="w-full h-auto object-cover" alt="FocusForge Dashboard" />
+          </div>
+  
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="md:col-span-2 space-y-6">
+                <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                    <Target className="w-4 h-4" /> Overview
+                </div>
+                <p className="text-lg leading-relaxed">
+                    FocusForge is a self-initiated full-stack web application that helps users manage tasks, track habits, and visualize progress over time.
+                    The project focuses on <strong>clarity, performance, and scalability</strong>.
+                </p>
+                <div className="space-y-4 pt-4">
+                    <h4 className="font-bold text-foreground">Problem</h4>
+                    <p className="text-sm">Most productivity tools are either too complex and overwhelming, or too minimal to be useful long-term. Users struggle with maintaining consistency and understanding progress.</p>
+                </div>
+            </div>
+            <div className="bg-accent/30 p-6 rounded-2xl border border-border">
+                <div className="text-sm font-bold text-foreground mb-4">MY ROLE</div>
+                <div className="space-y-2">
+                    {["Product Design", "Frontend & Backend Dev", "Database Schema", "Dashboard UX"].map(role => (
+                        <div key={role} className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                            {role}
+                        </div>
+                    ))}
                 </div>
             </div>
           </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Challenges & Solutions</h3>
-            <div className="space-y-3">
-                <div className="bg-accent/30 p-4 rounded-lg">
-                    <span className="font-bold text-primary block mb-1">Challenge: Managing real-time habit streaks</span>
-                    <p className="text-sm">Solution: Normalized database schema with daily completion entries.</p>
-                </div>
-                <div className="bg-accent/30 p-4 rounded-lg">
-                    <span className="font-bold text-primary block mb-1">Challenge: Keeping dashboards readable with lots of data</span>
-                    <p className="text-sm">Solution: Progressive disclosure — showing summaries first, details later.</p>
-                </div>
+
+          <section className="space-y-6">
+            <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                <Layers className="w-4 h-4" /> Key Features
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                    { title: "Task Engine", icon: <CheckCircle className="w-5 h-5" />, desc: "Daily task management & sessions" },
+                    { title: "Habit Streaks", icon: <Zap className="w-5 h-5" />, desc: "Visual streak tracking system" },
+                    { title: "Analytics", icon: <TrendingUp className="w-5 h-5" />, desc: "Weekly & monthly progress charts" },
+                    { title: "Dark Mode", icon: <Moon className="w-5 h-5" />, desc: "Optimized for night-time usage" },
+                    { title: "Auth", icon: <Shield className="w-5 h-5" />, desc: "Secure user sessions" }
+                ].map((feat, i) => (
+                    <div key={i} className="p-5 rounded-xl bg-accent/20 border border-border flex flex-col gap-3">
+                        <div className="text-primary">{feat.icon}</div>
+                        <div>
+                            <div className="font-bold text-foreground">{feat.title}</div>
+                            <div className="text-xs text-secondary mt-1">{feat.desc}</div>
+                        </div>
+                    </div>
+                ))}
             </div>
           </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Outcome</h3>
-            <p>FocusForge demonstrates full-stack architecture thinking, data visualization skills, and clean dashboard UI design.</p>
+
+          <section className="space-y-6">
+            <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                <Code2 className="w-4 h-4" /> Tech Stack & Architecture
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                 <div className="space-y-4">
+                    <h4 className="text-sm font-bold text-foreground">Stack</h4>
+                    <div className="flex flex-wrap gap-2">
+                        {["Next.js", "React", "TypeScript", "Tailwind", "Node.js", "Fastify", "Prisma", "PostgreSQL", "Chart.js"].map(t => (
+                            <span key={t} className="px-2 py-1 bg-accent rounded border border-border text-xs font-mono">{t}</span>
+                        ))}
+                    </div>
+                 </div>
+                 <div className="space-y-4">
+                    <h4 className="text-sm font-bold text-foreground">Decisions</h4>
+                    <ul className="space-y-2 text-sm">
+                        <li>• RESTful API structure</li>
+                        <li>• Normalized habit & task schemas</li>
+                        <li>• Server-side validation using Zod</li>
+                    </ul>
+                 </div>
+            </div>
+          </section>
+
+          <section className="p-6 rounded-2xl bg-accent/30 border border-border">
+             <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs mb-4">
+                <Lightbulb className="w-4 h-4" /> Outcome & Learnings
+            </div>
+            <p className="mb-4">FocusForge demonstrates full-stack architecture thinking, data visualization skills, and dashboard UX design tailored for real-world scalability.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-border/50">
+                <div className="text-sm"><strong>UX Clarity:</strong> Critical for dashboards</div>
+                <div className="text-sm"><strong>Backend:</strong> Decisions affect frontend simplicity</div>
+                <div className="text-sm"><strong>Simplicity:</strong> Fewer features = better usability</div>
+            </div>
           </section>
         </div>
       )
@@ -212,57 +312,92 @@ const PROJECTS: Project[] = [
     id: 3,
     title: "Pulse",
     category: "Mobile App",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    image: "https://i.postimg.cc/VLXSQH5Q/Chat-GPT-Image-Dec-30-2025-02-19-55-PM.png",
     description: "A Mobile Habit & Mood Tracking App.",
     tags: ["React Native", "TypeScript", "Expo"],
     content: (
-        <div className="space-y-8 text-secondary">
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Overview</h3>
-            <p>Pulse is a mobile app designed to help users build better habits while tracking their emotional state over time. The project focuses on emotional design, simplicity, and daily engagement rather than feature overload.</p>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Problem</h3>
-            <p>Many habit apps fail because they demand too much input, interfaces feel robotic, and users lose motivation quickly.</p>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Solution</h3>
-            <p>Pulse introduces one-tap habit completion, simple mood logging using emojis, and gentle visual feedback instead of pressure-based metrics.</p>
+        <div className="space-y-12 text-secondary animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="flex flex-col items-center text-center max-w-2xl mx-auto space-y-6">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+                 <Zap className="w-10 h-10 text-white" />
+            </div>
+            <div>
+                <h3 className="text-4xl font-extrabold text-foreground">Pulse</h3>
+                <p className="text-xl text-secondary mt-2">Habit & Mood Tracking Reimagined.</p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl overflow-hidden border border-border shadow-2xl max-w-lg mx-auto bg-black">
+              <img src="https://i.postimg.cc/WbyZTJw4/Chat-GPT-Image-Dec-29-2025-05-14-51-PM.png" className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity" alt="Pulse App Preview" />
+          </div>
+
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+            <div className="space-y-6">
+                <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                    <Target className="w-4 h-4" /> The Concept
+                </div>
+                <p className="leading-relaxed">
+                    Pulse is a mobile app focused on helping users build habits while tracking emotional patterns. 
+                    The project emphasizes <strong>emotional design, daily engagement, and simplicity</strong>.
+                </p>
+                <div className="space-y-2">
+                    <h4 className="font-bold text-foreground text-sm">Goals</h4>
+                    <ul className="space-y-1 text-sm">
+                        <li>• Make habit tracking feel lightweight</li>
+                        <li>• Use emotion as feedback, not pressure</li>
+                        <li>• Reduce daily friction to near zero</li>
+                    </ul>
+                </div>
+            </div>
+            <div className="space-y-6">
+                 <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                    <Smartphone className="w-4 h-4" /> Core Features
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                    {[
+                        "Onboarding flow", "Daily habit checklist", "Emoji-based mood tracking", "Streak visualization", "Dark/Light themes"
+                    ].map((f, i) => (
+                        <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-accent/30 border border-border">
+                            <CheckCircle className="w-4 h-4 text-green-500" />
+                            <span className="text-sm font-medium">{f}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
           </section>
 
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Core Features</h3>
-             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary"/> Onboarding flow</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary"/> Daily habit checklist</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary"/> Mood tracking (emoji-based)</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary"/> Streak visualization</li>
-             </ul>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Tech Stack</h3>
-            <ul className="list-disc pl-5 space-y-1">
-                <li><strong>Mobile:</strong> React Native, TypeScript, Expo</li>
-                <li><strong>State & Storage:</strong> Context API, AsyncStorage</li>
-                <li><strong>Design:</strong> Figma (UI & flows)</li>
-            </ul>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Design Decisions</h3>
-            <ul className="list-disc pl-5 space-y-1">
-                <li>Used soft gradients to create a calm emotional tone</li>
-                <li>Large touch targets for one-handed usage</li>
-                <li>Bottom navigation for fast access</li>
-            </ul>
+          <section className="space-y-6">
+             <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                <Palette className="w-4 h-4" /> Design & Tech
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-5 rounded-xl bg-gradient-to-br from-pink-500/5 to-purple-500/5 border border-pink-500/10">
+                    <h4 className="font-bold text-foreground mb-3">Design Decisions</h4>
+                    <ul className="space-y-2 text-sm">
+                        <li className="flex gap-2"><ArrowRight className="w-4 h-4 text-pink-500 shrink-0"/> Soft gradients for calm tone</li>
+                        <li className="flex gap-2"><ArrowRight className="w-4 h-4 text-pink-500 shrink-0"/> Large touch targets</li>
+                        <li className="flex gap-2"><ArrowRight className="w-4 h-4 text-pink-500 shrink-0"/> Minimal text, more visuals</li>
+                    </ul>
+                </div>
+                <div className="p-5 rounded-xl bg-accent/20 border border-border">
+                     <h4 className="font-bold text-foreground mb-3">Tech Stack</h4>
+                     <div className="flex flex-wrap gap-2">
+                        {["React Native", "TypeScript", "Expo", "Context API", "AsyncStorage"].map(t => (
+                            <span key={t} className="px-2 py-1 bg-background rounded border border-border text-xs">{t}</span>
+                        ))}
+                     </div>
+                </div>
+            </div>
           </section>
 
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Learnings</h3>
-            <p>Mobile UX requires fewer choices, not more. Emotional feedback increases retention, and small animations significantly improve perceived quality.</p>
+          <section className="flex flex-col md:flex-row gap-6 p-6 bg-accent/20 rounded-xl border border-border items-center">
+             <div className="shrink-0 p-4 bg-primary/10 rounded-full text-primary">
+                <Smartphone className="w-6 h-6" />
+             </div>
+             <div>
+                <h4 className="font-bold text-foreground mb-1">Outcome</h4>
+                <p className="text-sm text-secondary">Pulse highlights mobile UX understanding, emotional product design, and cross-platform development skills.</p>
+             </div>
           </section>
         </div>
       )
@@ -270,63 +405,90 @@ const PROJECTS: Project[] = [
     {
     id: 4,
     title: "Launchpad",
-    category: "Marketing & Frontend",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    category: "Marketing Landing Page",
+    image: "https://i.postimg.cc/Y9yrYQ9v/Chat-GPT-Image-Dec-30-2025-02-18-15-PM.png",
     description: "A Conversion-Focused Marketing Landing Page.",
     tags: ["Next.js", "React", "Tailwind CSS"],
     content: (
-        <div className="space-y-8 text-secondary">
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Overview</h3>
-            <p>Launchpad is a concept landing page designed to convert early users for an AI-powered resume and portfolio feedback tool. This project emphasizes marketing psychology, copywriting, and conversion flow.</p>
+        <div className="space-y-12 text-secondary animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="rounded-2xl overflow-hidden border border-border shadow-2xl">
+              <img src="https://i.postimg.cc/3rnJH5FR/pawelzmarlak-2025-12-30T08-38-43-706Z.png" className="w-full h-auto object-cover" alt="Launchpad Preview" />
+          </div>
+
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="md:col-span-2 space-y-6">
+                <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                    <Rocket className="w-4 h-4" /> Marketing Engine
+                </div>
+                <h3 className="text-3xl font-bold text-foreground">Built to Convert.</h3>
+                <p className="text-lg leading-relaxed">
+                    Launchpad is a concept landing page designed to convert early users for an AI-powered resume & portfolio feedback tool. 
+                    This project focuses on <strong>marketing psychology and conversion flow</strong> rather than raw feature lists.
+                </p>
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                     <div className="p-4 rounded-lg bg-accent/30 border border-border">
+                        <div className="font-bold text-foreground text-sm mb-1">Single Goal</div>
+                        <div className="text-xs">Guide users to "Join Waitlist"</div>
+                     </div>
+                     <div className="p-4 rounded-lg bg-accent/30 border border-border">
+                        <div className="font-bold text-foreground text-sm mb-1">Psychology</div>
+                        <div className="text-xs">Trust signals & Problem/Solution</div>
+                     </div>
+                </div>
+            </div>
+            <div className="bg-gradient-to-b from-primary/10 to-transparent p-6 rounded-2xl border border-primary/10 flex flex-col items-center text-center justify-center space-y-4">
+                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center animate-pulse">
+                    <Rocket className="w-8 h-8 text-primary" />
+                </div>
+                <div>
+                    <div className="font-bold text-foreground">Launchpad</div>
+                    <div className="text-xs uppercase tracking-widest text-primary font-bold mt-1">Marketing</div>
+                </div>
+            </div>
           </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Problem</h3>
-            <p>Many early-stage products fail because value propositions are unclear, pages lack trust signals, and CTAs are poorly placed.</p>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Solution</h3>
-            <p>Launchpad was designed as a single-purpose page: <strong>Convert visitors into waitlist signups.</strong></p>
-            <p className="mt-2 text-sm">Page Structure: Hero Value Prop → Problem/Solution Storytelling → Feature Highlights → Social Proof → FAQ → CTA.</p>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Tech Stack</h3>
-            <div className="flex flex-wrap gap-2">
-                {["Next.js", "React", "Tailwind CSS", "TypeScript"].map(tag => (
-                    <span key={tag} className="px-3 py-1 bg-accent border border-border rounded-full text-xs">{tag}</span>
+
+          <section className="space-y-6">
+            <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                <Zap className="w-4 h-4" /> Page Structure & Flow
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 overflow-x-auto pb-2">
+                {["Hero Value Prop", "Problem Narrative", "Solution", "Social Proof", "FAQ", "CTA"].map((step, idx) => (
+                    <div key={idx} className="min-w-[140px] flex-1 p-4 rounded-xl bg-accent/30 border border-border flex flex-col gap-2 relative group hover:border-primary/50 transition-colors">
+                        <span className="absolute top-2 right-2 text-[10px] font-bold text-secondary opacity-50">0{idx + 1}</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:scale-150 transition-transform"></div>
+                        <span className="font-bold text-foreground text-sm">{step}</span>
+                    </div>
                 ))}
             </div>
           </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Marketing Decisions</h3>
-            <ul className="list-disc pl-5 space-y-1">
-                <li>CTA repeated at multiple scroll points</li>
-                <li>Copy focuses on outcomes, not features</li>
-                <li>Friendly illustrations to reduce intimidation</li>
-            </ul>
-          </section>
-
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Challenges & Solutions</h3>
-            <div className="space-y-3">
-                 <div>
-                    <span className="font-semibold text-foreground">Challenge: Avoiding content overload</span>
-                    <p className="text-sm">Solution: Clear visual sections with breathing space.</p>
-                 </div>
-                 <div>
-                    <span className="font-semibold text-foreground">Challenge: Building trust without real users</span>
-                    <p className="text-sm">Solution: Transparent “early access” framing.</p>
-                 </div>
-            </div>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Learnings</h3>
-            <p>Good copy reduces design complexity. Clear positioning matters more than animations. Marketing is as much UX as visuals.</p>
+          
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+             <div className="space-y-4">
+                 <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                    <PenTool className="w-4 h-4" /> Marketing Decisions
+                </div>
+                <ul className="space-y-3">
+                    <li className="flex gap-3 text-sm p-3 rounded-lg bg-accent/20"><Check className="w-4 h-4 text-green-500 shrink-0"/> CTA repeated at strategic scroll points</li>
+                    <li className="flex gap-3 text-sm p-3 rounded-lg bg-accent/20"><Check className="w-4 h-4 text-green-500 shrink-0"/> Outcome-focused copy</li>
+                    <li className="flex gap-3 text-sm p-3 rounded-lg bg-accent/20"><Check className="w-4 h-4 text-green-500 shrink-0"/> Friendly illustrations to reduce intimidation</li>
+                    <li className="flex gap-3 text-sm p-3 rounded-lg bg-accent/20"><Check className="w-4 h-4 text-green-500 shrink-0"/> Clear “early access” framing</li>
+                </ul>
+             </div>
+             <div className="space-y-4">
+                <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                    <Code2 className="w-4 h-4" /> Tech & Learnings
+                </div>
+                <div className="p-5 rounded-xl border border-border space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                        {["Next.js", "React", "Tailwind CSS", "TypeScript"].map(t => (
+                            <span key={t} className="text-xs px-2 py-1 bg-accent rounded border border-border">{t}</span>
+                        ))}
+                    </div>
+                    <div className="border-t border-border pt-4">
+                        <p className="text-sm italic">"Copy drives design. Clear positioning beats visual noise. Marketing is UX."</p>
+                    </div>
+                </div>
+             </div>
           </section>
         </div>
       )
@@ -334,55 +496,76 @@ const PROJECTS: Project[] = [
   {
     id: 5,
     title: "Aravalli Atlas",
-    category: "Educational Platform",
-    image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80",
+    category: "Awareness Campaign",
+    image: "https://i.postimg.cc/1zvs1DpZ/Chat-GPT-Image-Dec-30-2025-02-19-08-PM.png",
     description: "An Educational Data-Driven Web Platform.",
     tags: ["React", "Tailwind CSS", "Chart.js"],
     content: (
-        <div className="space-y-8 text-secondary">
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Overview</h3>
-            <p>Aravalli Atlas is an informational platform designed to present environmental data in a neutral, educational format. The focus was on information clarity, visual storytelling, and ethical UX design.</p>
+        <div className="space-y-12 text-secondary animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="rounded-2xl overflow-hidden border border-border shadow-2xl">
+              <img src="https://i.postimg.cc/xd1V5qBJ/pawelzmarlak-2025-12-30T08-42-50-347Z.png" className="w-full h-auto object-cover" alt="Aravalli Atlas View" />
+          </div>
+
+          <section className="max-w-3xl space-y-6">
+            <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                <Globe className="w-4 h-4" /> Global Importance
+            </div>
+            <h3 className="text-3xl font-bold text-foreground">Educating Through Data.</h3>
+            <p className="text-lg leading-relaxed">
+                Aravalli Atlas is an informational platform presenting environmental data in a neutral, educational format. 
+                It avoids emotional manipulation, focusing instead on <strong>information clarity and visual storytelling</strong>.
+            </p>
+            <div className="flex gap-4 pt-2">
+                <div className="px-4 py-2 rounded-lg bg-green-500/10 text-green-600 font-bold text-xs border border-green-500/20">Environmental Data</div>
+                <div className="px-4 py-2 rounded-lg bg-blue-500/10 text-blue-600 font-bold text-xs border border-blue-500/20">Education</div>
+            </div>
           </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Problem</h3>
-            <p>Environmental topics often suffer from information overload, emotional manipulation, and poor data presentation.</p>
+
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+             <div className="space-y-6">
+                 <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                    <Layout className="w-4 h-4" /> Key Sections
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                    {[
+                        { label: "Geographic overview", icon: <Globe className="w-4 h-4" /> },
+                        { label: "Ecological importance", icon: <Shield className="w-4 h-4" /> },
+                        { label: "Threat analysis", icon: <X className="w-4 h-4" /> },
+                        { label: "Data & statistics", icon: <Database className="w-4 h-4" /> }
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-accent/30 border border-border">
+                            <div className="text-primary">{item.icon}</div>
+                            <span className="text-sm font-medium">{item.label}</span>
+                        </div>
+                    ))}
+                </div>
+             </div>
+             <div className="space-y-6">
+                <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+                    <Palette className="w-4 h-4" /> Design Decisions
+                </div>
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-stone-500/10 to-transparent border border-stone-500/20">
+                     <ul className="space-y-3">
+                        <li className="flex gap-3 text-sm"><div className="w-2 h-2 rounded-full bg-stone-500 mt-1.5"/> Earth-tone palette</li>
+                        <li className="flex gap-3 text-sm"><div className="w-2 h-2 rounded-full bg-stone-500 mt-1.5"/> Neutral language</li>
+                        <li className="flex gap-3 text-sm"><div className="w-2 h-2 rounded-full bg-stone-500 mt-1.5"/> Visual storytelling over text</li>
+                        <li className="flex gap-3 text-sm"><div className="w-2 h-2 rounded-full bg-stone-500 mt-1.5"/> Card-based layout for scannability</li>
+                     </ul>
+                </div>
+             </div>
           </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Solution</h3>
-            <p>Aravalli Atlas presents structured educational sections, data-backed insights, and clear navigation for exploration.</p>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Key Sections</h3>
-            <ul className="list-disc pl-5 space-y-1">
-                <li>Geography overview</li>
-                <li>Environmental importance</li>
-                <li>Threats and challenges</li>
-                <li>Data & statistics</li>
-                <li>Resources and references</li>
-            </ul>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Tech Stack</h3>
-            <p>React, Tailwind CSS, Chart.js, Map-based visualization tools.</p>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Design Decisions</h3>
-            <ul className="list-disc pl-5 space-y-1">
-                <li>Earth-tone color palette</li>
-                <li>Neutral language</li>
-                <li>Map-based storytelling</li>
-            </ul>
-          </section>
-  
-          <section>
-            <h3 className="text-xl font-bold text-foreground mb-3">Learnings</h3>
-            <p>Ethics matter in UX. Visual data improves understanding. Tone affects credibility.</p>
+
+          <section className="border-t border-border pt-8 mt-8">
+             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                 <div>
+                    <div className="font-bold text-foreground mb-1">Tech Stack</div>
+                    <div className="text-sm text-secondary">React, Tailwind CSS, Chart.js, Map-based tools</div>
+                 </div>
+                 <div className="md:text-right">
+                    <div className="font-bold text-foreground mb-1">Key Learning</div>
+                    <div className="text-sm text-secondary italic">"Tone affects credibility. Data must be readable to be impactful."</div>
+                 </div>
+             </div>
           </section>
         </div>
       )
@@ -501,7 +684,6 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
 
           <div className="flex flex-col gap-8 lg:gap-0 lg:flex-row lg:items-center justify-between max-w-[600px]">
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              {/* Colorful Looping Stroke Animation Button for Contact Me */}
               <a 
                 href="mailto:itzanshu15@gmail.com"
                 className="relative inline-flex h-12 overflow-hidden rounded-md p-[2px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background shadow-xl w-full sm:w-auto"
@@ -512,7 +694,6 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
                 </span>
               </a>
 
-              {/* Animated View Projects Button */}
               <button 
                 onClick={() => setView('projects')}
                 className="group relative inline-flex items-center justify-center rounded-md text-sm font-medium border border-black/10 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:text-foreground text-secondary dark:text-gray-200 h-12 px-6 py-2 shadow-xl transition-all overflow-hidden w-full sm:w-auto"
@@ -526,8 +707,6 @@ const Hero = ({ setView }: { setView: (v: string) => void }) => {
             </div>
 
             <div className="hidden lg:block w-[1px] bg-black/10 dark:bg-white/20 h-8 mx-8"></div>
-            
-            {/* Divider for Mobile */}
             <div className="block lg:hidden w-full h-[1px] bg-black/10 dark:bg-white/10"></div>
 
             <div className="flex justify-center items-center gap-8 text-xl text-secondary">
@@ -578,8 +757,6 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-8 pt-12">
-        
-        {/* Card 1: What I can do - REDESIGNED */}
         <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
           <div className="flex pb-4 items-center gap-4">
             <div className="text-primary bg-primary/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
@@ -609,7 +786,6 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
           </ul>
         </div>
 
-        {/* Card 2: Tools I Use - REDESIGNED */}
         <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
           <div className="flex pb-4 items-center gap-4">
             <div className="text-primary bg-primary/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
@@ -623,39 +799,19 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
           
           <div className="space-y-6">
              {[
-               { 
-                 category: "Frontend", 
-                 icon: <Globe className="w-4 h-4" />,
-                 tools: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Shadcn/UI"] 
-               },
-               { 
-                 category: "Backend", 
-                 icon: <Server className="w-4 h-4" />,
-                 tools: ["Node.js", "Fastify", "PostgreSQL", "Prisma ORM", "Redis"] 
-               },
-               { 
-                 category: "DevOps & Tools", 
-                 icon: <Cpu className="w-4 h-4" />,
-                 tools: ["Vercel", "Docker", "Git & GitHub", "Zod"] 
-               },
-               {
-                 category: "Design",
-                 icon: <Palette className="w-4 h-4" />,
-                 tools: ["Figma", "Framer", "Photoshop"]
-               }
+               { category: "Frontend", icon: <Globe className="w-4 h-4" />, tools: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Shadcn/UI"] },
+               { category: "Backend", icon: <Server className="w-4 h-4" />, tools: ["Node.js", "Fastify", "PostgreSQL", "Prisma ORM", "Redis"] },
+               { category: "DevOps & Tools", icon: <Cpu className="w-4 h-4" />, tools: ["Vercel", "Docker", "Git & GitHub", "Zod"] },
+               { category: "Design", icon: <Palette className="w-4 h-4" />, tools: ["Figma", "Framer", "Photoshop"] }
              ].map((group, idx) => (
                 <div key={idx}>
                    <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                      <div className="p-1 rounded bg-primary/10 text-primary">
-                        {group.icon}
-                      </div>
+                      <div className="p-1 rounded bg-primary/10 text-primary">{group.icon}</div>
                       {group.category}
                    </h3>
                    <div className="flex flex-wrap gap-2">
                       {group.tools.map((tool, tIdx) => (
-                         <span key={tIdx} className="px-2.5 py-1 text-xs rounded-md bg-accent border border-border text-secondary hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all duration-300 cursor-default select-none">
-                            {tool}
-                         </span>
+                         <span key={tIdx} className="px-2.5 py-1 text-xs rounded-md bg-accent border border-border text-secondary hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all duration-300 cursor-default select-none">{tool}</span>
                       ))}
                    </div>
                 </div>
@@ -663,7 +819,6 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
           </div>
         </div>
 
-        {/* Card 3: UI/UX Design - (Keep as is) */}
         <div className="flex flex-col border border-border rounded-xl p-6 sm:p-8 bg-gradient-gray backdrop-blur-3xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
           <div className="flex pb-4 items-center gap-4">
             <div className="text-primary bg-primary/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
@@ -671,12 +826,8 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
             </div>
             <h1 className="text-2xl font-bold text-foreground">UI/UX Design</h1>
           </div>
-          
-          {/* Animated Styled Quote */}
           <div className="relative my-6 group/quote">
-             {/* Gradient Border/Glow effect */}
              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-600 rounded-lg opacity-20 blur transition duration-500 group-hover/quote:opacity-50"></div>
-             
              <div className="relative p-6 bg-accent/50 rounded-lg border border-primary/10 backdrop-blur-sm">
                 <Quote className="w-6 h-6 text-primary/60 mb-3" />
                 <p className="text-lg italic font-medium text-foreground leading-relaxed">
@@ -689,11 +840,9 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
                 </div>
              </div>
           </div>
-
           <p className="text-secondary pb-6 text-sm">
              I focus on creating interfaces that feel natural, purposeful, and effortless to use.
           </p>
-          
           <ul ref={listRef} className="space-y-3">
              {[
                  "User-first design decisions",
@@ -717,7 +866,6 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
              ))}
           </ul>
         </div>
-
       </div>
 
       <button 
@@ -730,31 +878,20 @@ const ServicesSection = ({ setView }: { setView: (v: string) => void }) => {
   );
 };
 
-// Counter Component for Animation
 const AnimatedCounter = ({ value, suffix }: { value: number, suffix: string }) => {
     const [count, setCount] = useState(0);
-
     useEffect(() => {
         let startTimestamp: number | null = null;
         const duration = 2000;
-
         const step = (timestamp: number) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            
-            // Ease out quart
-             const ease = 1 - Math.pow(1 - progress, 4);
-             
+            const ease = 1 - Math.pow(1 - progress, 4);
             setCount(Math.floor(ease * value));
-
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
+            if (progress < 1) window.requestAnimationFrame(step);
         };
-
         window.requestAnimationFrame(step);
     }, [value]);
-
     return <>{count}{suffix}</>;
 };
 
@@ -765,18 +902,13 @@ const StatsSection = () => {
     { label: "Happy Clients", value: 98, suffix: "%", icon: <CheckCircle className="w-5 h-5 text-pink-500" /> },
     { label: "Cups of Coffee", value: 500, suffix: "+", icon: <Coffee className="w-5 h-5 text-orange-500" /> },
   ];
-
   return (
     <section className="px-5 sm:px-20 xl:px-52 py-12 bg-accent/30 border-t border-border transition-colors duration-300">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((stat, index) => (
           <div key={index} className="flex flex-col items-center md:items-start space-y-2 hover:scale-105 transition-transform duration-300">
-            <div className="flex items-center gap-2 mb-2 bg-background p-2 rounded-full shadow-sm border border-border">
-              {stat.icon}
-            </div>
-            <h3 className="text-3xl md:text-4xl font-bold gradient-text tabular-nums">
-                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-            </h3>
+            <div className="flex items-center gap-2 mb-2 bg-background p-2 rounded-full shadow-sm border border-border">{stat.icon}</div>
+            <h3 className="text-3xl md:text-4xl font-bold gradient-text tabular-nums"><AnimatedCounter value={stat.value} suffix={stat.suffix} /></h3>
             <p className="text-sm font-medium text-secondary">{stat.label}</p>
           </div>
         ))}
@@ -788,80 +920,35 @@ const StatsSection = () => {
 const ContactSection = () => {
   const [copied, setCopied] = useState(false);
   const email = "itzanshu15@gmail.com";
-
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
   return (
     <section className="relative px-5 sm:px-20 xl:px-52 bg-background py-24 border-t border-border transition-colors duration-300 overflow-hidden">
-      {/* Animated Background Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
       <div className="absolute top-20 right-10 w-72 h-72 bg-pink-500/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
       <div className="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-500/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-
       <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
         <h2 className="text-sm font-bold tracking-wider text-primary uppercase">Get In Touch</h2>
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
-          Let’s build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">amazing</span> together.
-        </h1>
-        <p className="text-lg md:text-xl text-secondary max-w-2xl">
-          Whether you have a project in mind, need a consultation, or just want to say hi—I'm always open to discussing new ideas.
-        </p>
-
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">Let’s build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">amazing</span> together.</h1>
+        <p className="text-lg md:text-xl text-secondary max-w-2xl">Whether you have a project in mind, need a consultation, or just want to say hi—I'm always open to discussing new ideas.</p>
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 w-full justify-center">
             <div className="relative group w-full sm:w-auto">
                 <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                <button 
-                  onClick={handleCopy}
-                  className="relative flex items-center justify-between gap-3 px-4 sm:px-8 py-4 bg-background rounded-lg border border-border leading-none transition-transform active:scale-95 w-full sm:w-auto sm:min-w-[300px]"
-                >
-                    <span className="flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-medium text-foreground truncate">
-                       <Mail className="w-5 h-5 text-secondary shrink-0" />
-                       <span className="truncate">{email}</span>
-                    </span>
-                    <span className="text-xs font-bold text-secondary bg-accent px-2 py-1 rounded flex items-center gap-1 shrink-0">
-                        {copied ? <Check className="w-3 h-3 text-green-500" /> : <Copy className="w-3 h-3" />}
-                        {copied ? "COPIED" : "COPY"}
-                    </span>
+                <button onClick={handleCopy} className="relative flex items-center justify-between gap-3 px-4 sm:px-8 py-4 bg-background rounded-lg border border-border leading-none transition-transform active:scale-95 w-full sm:w-auto sm:min-w-[300px]">
+                    <span className="flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-medium text-foreground truncate"><Mail className="w-5 h-5 text-secondary shrink-0" /><span className="truncate">{email}</span></span>
+                    <span className="text-xs font-bold text-secondary bg-accent px-2 py-1 rounded flex items-center gap-1 shrink-0">{copied ? <Check className="w-3 h-3 text-green-500" /> : <Copy className="w-3 h-3" />}{copied ? "COPIED" : "COPY"}</span>
                 </button>
             </div>
-            
-            <a 
-                href={`mailto:${email}`}
-                className="px-8 py-4 rounded-lg bg-foreground text-background font-bold hover:bg-foreground/90 transition-colors shadow-lg w-full sm:w-auto text-center"
-            >
-                Send Email
-            </a>
+            <a href={`mailto:${email}`} className="px-8 py-4 rounded-lg bg-foreground text-background font-bold hover:bg-foreground/90 transition-colors shadow-lg w-full sm:w-auto text-center">Send Email</a>
         </div>
-
         <div className="flex items-center gap-8 mt-12 pt-12 border-t border-border/50 w-full justify-center">
-            <a href="https://x.com/AnshunavBora" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-secondary hover:text-primary transition-colors group">
-                <div className="p-3 rounded-full bg-accent group-hover:bg-primary/10 transition-colors">
-                    <Twitter className="w-6 h-6" />
-                </div>
-                <span className="text-xs font-medium">Twitter</span>
-            </a>
-            <a href="https://www.linkedin.com/in/anshunavbora" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-secondary hover:text-primary transition-colors group">
-                <div className="p-3 rounded-full bg-accent group-hover:bg-primary/10 transition-colors">
-                    <Linkedin className="w-6 h-6" />
-                </div>
-                <span className="text-xs font-medium">LinkedIn</span>
-            </a>
-            <a href="https://github.com/rettogotbugs" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-secondary hover:text-primary transition-colors group">
-                <div className="p-3 rounded-full bg-accent group-hover:bg-primary/10 transition-colors">
-                    <Github className="w-6 h-6" />
-                </div>
-                <span className="text-xs font-medium">GitHub</span>
-            </a>
-            <a href="https://dribbble.com/itzAnshu15" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-secondary hover:text-primary transition-colors group">
-                <div className="p-3 rounded-full bg-accent group-hover:bg-primary/10 transition-colors">
-                    <Dribbble className="w-6 h-6" />
-                </div>
-                <span className="text-xs font-medium">Dribbble</span>
-            </a>
+            <a href="https://x.com/AnshunavBora" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-secondary hover:text-primary transition-colors group"><div className="p-3 rounded-full bg-accent group-hover:bg-primary/10 transition-colors"><Twitter className="w-6 h-6" /></div><span className="text-xs font-medium">Twitter</span></a>
+            <a href="https://www.linkedin.com/in/anshunavbora" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-secondary hover:text-primary transition-colors group"><div className="p-3 rounded-full bg-accent group-hover:bg-primary/10 transition-colors"><Linkedin className="w-6 h-6" /></div><span className="text-xs font-medium">LinkedIn</span></a>
+            <a href="https://github.com/rettogotbugs" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-secondary hover:text-primary transition-colors group"><div className="p-3 rounded-full bg-accent group-hover:bg-primary/10 transition-colors"><Github className="w-6 h-6" /></div><span className="text-xs font-medium">GitHub</span></a>
+            <a href="https://dribbble.com/itzAnshu15" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-secondary hover:text-primary transition-colors group"><div className="p-3 rounded-full bg-accent group-hover:bg-primary/10 transition-colors"><Dribbble className="w-6 h-6" /></div><span className="text-xs font-medium">Dribbble</span></a>
         </div>
       </div>
     </section>
@@ -873,22 +960,11 @@ const Footer = () => {
     <footer className="bg-background border-t border-border transition-colors duration-300">
       <div className="px-5 sm:px-20 xl:px-52 pt-12 pb-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
-            <div>
-                <h2 className="text-xl font-bold text-foreground mb-2">Anshunav Bora</h2>
-                <div className="flex items-center gap-2 text-secondary">
-                    <span className="text-xl">🇮🇳</span>
-                    <p>Based In India</p>
-                </div>
-            </div>
-            <p className="text-secondary max-w-sm">
-                Website Designed in Figma. Built with React, TypeScript and Tailwind CSS.
-            </p>
+            <div><h2 className="text-xl font-bold text-foreground mb-2">Anshunav Bora</h2><div className="flex items-center gap-2 text-secondary"><span className="text-xl">🇮🇳</span><p>Based In India</p></div></div>
+            <p className="text-secondary max-w-sm">Website Designed in Figma. Built with React, TypeScript and Tailwind CSS.</p>
         </div>
-        
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50">
-            <p className="text-sm text-secondary">
-                © {new Date().getFullYear()} Anshunav. All rights are reserved.
-            </p>
+            <p className="text-sm text-secondary">© {new Date().getFullYear()} Anshunav. All rights are reserved.</p>
             <div className="flex items-center gap-6 text-secondary">
                 <a href="https://github.com/rettogotbugs" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Github className="w-5 h-5"/></a>
                 <a href="https://dribbble.com/itzAnshu15" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Dribbble className="w-5 h-5"/></a>
@@ -903,45 +979,29 @@ const Footer = () => {
 
 const ProjectCard: React.FC<{ project: Project, onClick: () => void }> = ({ project, onClick }) => {
   return (
-    <div 
-        onClick={onClick}
-        className="group bg-accent/20 rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 cursor-pointer"
-    >
+    <div onClick={onClick} className="group bg-accent/20 rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 cursor-pointer relative">
+      {project.isFeatured && (
+          <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-primary text-white text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg flex items-center gap-1.5">
+              <Sparkles className="w-3 h-3" /> Featured Case Study
+          </div>
+      )}
       <div className="h-48 overflow-hidden relative">
-        <img 
-          src={project.image} 
-          alt={project.title} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-        />
-        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-            <button className="px-4 py-2 bg-white text-black rounded-full font-medium text-sm">View Details</button>
-        </div>
+        <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><button className="px-4 py-2 bg-white text-black rounded-full font-medium text-sm">View Details</button></div>
       </div>
       <div className="p-5">
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="text-xl font-bold text-foreground">{project.title}</h3>
-          <span className="text-xs font-mono text-primary bg-primary/10 px-2 py-1 rounded">{project.category}</span>
-        </div>
+        <div className="flex justify-between items-start mb-2"><h3 className="text-xl font-bold text-foreground">{project.title}</h3><span className="text-xs font-mono text-primary bg-primary/10 px-2 py-1 rounded">{project.category}</span></div>
         <p className="text-secondary text-sm mb-4 line-clamp-2">{project.description}</p>
-        <div className="flex flex-wrap gap-2">
-          {project.tags.map(tag => (
-            <span key={tag} className="text-xs text-secondary bg-background border border-border px-2 py-1 rounded">
-              {tag}
-            </span>
-          ))}
-        </div>
+        <div className="flex flex-wrap gap-2">{project.tags.map(tag => (<span key={tag} className="text-xs text-secondary bg-background border border-border px-2 py-1 rounded">{tag}</span>))}</div>
       </div>
     </div>
   );
 };
 
 const ProjectDetailsModal = ({ project, onClose }: { project: Project, onClose: () => void }) => {
-    useEffect(() => {
-        // Prevent scrolling on the body when the modal is open
-        document.body.style.overflow = 'hidden';
-        return () => {
-            document.body.style.overflow = 'unset';
-        }
+    useEffect(() => { 
+        document.body.style.overflow = 'hidden'; 
+        return () => { document.body.style.overflow = 'unset'; } 
     }, []);
 
     return (
@@ -979,7 +1039,7 @@ const ProjectsView = () => {
         <div className="py-20 px-5 sm:px-20 xl:px-52 min-h-screen animate-fade-in bg-background transition-colors duration-300">
              <div className="mb-12">
                 <h1 className="text-4xl font-bold text-foreground mb-4">My Projects</h1>
-                <p className="text-secondary">Here are some of the projects I've worked on recently. Click on a card to view details.</p>
+                <p className="text-secondary">Here are some of the projects I've worked on recently. Click on a card to view detailed case studies.</p>
              </div>
              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {PROJECTS.map(p => (
